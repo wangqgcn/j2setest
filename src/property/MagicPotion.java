@@ -1,0 +1,10 @@
+package property;
+
+public class MagicPotion extends Item {
+    @Override
+    public void effect() {
+        System.out.println("蓝瓶使用后可以回魔法");
+    }
+
+
+}

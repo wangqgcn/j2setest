@@ -1,55 +1,54 @@
 package charactor;
 
-public class Hero {
+import property.Item;
+
+public abstract class Hero {
     public String name;
     public float hp;
-    public float armor;
-    public int moveSpeed;
+
+    //抽象方法
+    //子类必须实现抽象方法
+    public abstract void attack();
 
     public Hero() {
     }
 
-    public Hero(String name, float hp) {
+    public Hero(String name) {
+        System.out.println("有参数的构造方法");
         this.name = name;
-        this.hp = hp;
-    }
-    void die(){
-        hp = 0;
-    }
-    static void battleWin(){
-        System.out.println("battleWin");
     }
 
-    static String copyright;
-
-    void legendary() {
-        System.out.println(name + "超神了");
+    public void useItem(Item i){
+        System.out.println("Hero use item");
+        i.effect();
     }
 
-    float getHp() {
-        return hp;
+    @Override
+    public String toString() {
+        return "Hero{" +
+                "name='" + name + '\'' +
+                ", hp=" + hp +
+                '}';
     }
 
-    void recovery(float blood) {
-        hp = hp + blood;
-        System.out.println(name + "回血了" + blood);
+    public void finalize(){
+        System.out.println("这个对象正在被回收");
+    }
+
+    public boolean equals(Object o){
+        if(o instanceof Hero){
+            Hero h = (Hero) o;
+            return this.hp == h.hp;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
-        Hero teemo = new Hero("提莫", 400);
-        Hero.copyright = "版权由Riot Games公司所有";
-        teemo.legendary();
-        System.out.println(teemo.getHp());
-        teemo.recovery(50);
-        System.out.println(teemo.getHp());
-        System.out.println(Hero.copyright);
-        teemo.copyright = "Blizzard Entertainment Enterprise";
-        System.out.println(teemo.copyright);
+        Hero h = new Hero() {
+            @Override
+            public void attack() {
 
-        ADHero ad = new ADHero();
-        Hero h = ad;
-        AD adi = (AD) h;
-    //    APHero ap = (APHero) adi;   报错
-
+            }
+        };
     }
 }

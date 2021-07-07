@@ -1,24 +1,17 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+
 import java.io.IOException;
+import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        String str;
+public class Main{
+    public static void main(String [] args) throws IOException{
 
-        while ((str = bf.readLine()) != null) {
-            boolean[] stu = new boolean[1001];
-            StringBuilder sb = new StringBuilder();
-            int n = Integer.parseInt(str);
-            for (int i = 0; i < n; i++)
-                stu[Integer.parseInt(bf.readLine())] = true;
-            for (int i = 0; i < 1001; i++)
-                if (stu[i])
-                    sb.append(i).append("\n");
-            sb.deleteCharAt(sb.length() - 1);
-            System.out.println(sb.toString());
+        int[] a = new int[]{1,2,3,4,5,6,7};
+        int start = 0;
+        int end = a.length-1;
+
+        if(4<a[(int) Math.floor((start+end)/2)]){
+            
         }
-
     }
+
 }

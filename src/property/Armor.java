@@ -6,6 +6,7 @@ public class Armor extends Item {
     public Armor() {
     }
 
+
     public Armor(String name, int price, int ac) {
         super(name, price);
         this.ac = ac;
